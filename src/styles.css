@@ -38,3 +38,12 @@
 .g small{position:absolute;z-index:2;left:14px;bottom:12px;font-size:9px;letter-spacing:.18em;font-weight:800;color:#ffd331}
 @media(max-width:900px){.hero-food-card{width:330px;height:330px}.hero-chicken{font-size:120px;left:42px;top:68px}.hero-fries{font-size:82px;right:28px}.truck{min-height:340px}.truck-illustration{transform:scale(.78) rotate(-3deg)}}
 @media(max-width:600px){.hero-food-card{width:290px;height:290px}.hero-chicken{font-size:105px;left:38px;top:60px}.hero-fries{font-size:70px;right:24px;bottom:42px}.hero-sauce{font-size:17px}.food{height:190px}.contact-options{grid-template-columns:1fr}.truck-illustration{transform:scale(.62) rotate(-3deg)}}
+
+.mobile-cta{display:none}
+@media(max-width:600px){
+  body{padding-bottom:64px}
+  .mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:100;display:grid;grid-template-columns:repeat(3,1fr);background:#070707;border-top:1px solid #333;box-shadow:0 -8px 24px rgba(0,0,0,.35)}
+  .mobile-cta a{min-height:64px;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.04em;border-right:1px solid #292929}
+  .mobile-cta a:first-child{background:var(--red)}
+  .mobile-cta a:last-child{border-right:0}
+}
