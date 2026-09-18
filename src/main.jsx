@@ -1,14 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, CalendarDays, Clock3, Crown, Instagram, MapPin, Menu as MenuIcon, Sparkles, Users, X } from 'lucide-react';
+import { ArrowRight, CalendarDays, Clock3, Crown, Instagram, MapPin, Menu as MenuIcon, Sparkles, Users, X, ExternalLink } from 'lucide-react';
 import './styles.css';
 
 const menu = [
-  {title:'Wings', text:'Crispy wings with the flavours Cheeky Clucker is known for.', emoji:'🍗'},
-  {title:'Tenders', text:'Golden, crispy chicken tenders made for dipping.', emoji:'🍗'},
-  {title:'Fried Chicken Sandwiches', text:'Classic fried chicken, bold sauces and big flavour.', emoji:'🥪'},
-  {title:'Burgers', text:'Proper chicken burgers with the Cheeky Clucker twist.', emoji:'🍔'},
-  {title:'Loaded Fries', text:'Loaded, saucy and built to share.', emoji:'🍟'}
+  {title:'Wings', text:'Crispy wings with big flavour and the signature Cheeky Clucker sauces.', emoji:'🍗', tone:'red'},
+  {title:'Tenders', text:'Golden, crispy chicken tenders made for dipping and sharing.', emoji:'🍗', tone:'yellow'},
+  {title:'Fried Chicken Sandwiches', text:'Crispy chicken, bold sauces and a proper bun.', emoji:'🥪', tone:'cream'},
+  {title:'Burgers', text:'Big chicken burgers with the Cheeky Clucker twist.', emoji:'🍔', tone:'red'},
+  {title:'Loaded Fries', text:'Crispy fries loaded with flavour and built to share.', emoji:'🍟', tone:'yellow'}
 ];
 
 const events = ['Festivals','Weddings','Private Parties','Corporate Events','Street Food Events'];
@@ -40,7 +40,7 @@ function App(){
             <a className="btn yellow" href="#events"><Users size={18}/> CATERING & EVENTS</a>
           </div>
         </div>
-        <div className="hero-art"><div className="hero-glow"></div><div className="burger">🍔</div><div className="scribble">GOOD<br/>CHICKEN<br/>GOOD<br/>TIMES</div></div>
+        <div className="hero-art"><div className="hero-glow"></div><div className="hero-food-card"><div className="food-burst">★</div><div className="hero-chicken">🍗</div><div className="hero-fries">🍟</div><div className="hero-sauce">HOT<br/>SAUCE</div></div><div className="scribble">GOOD<br/>CHICKEN<br/>GOOD<br/>TIMES</div></div>
       </section>
 
       <section className="trust">
@@ -52,28 +52,28 @@ function App(){
 
       <section id="menu" className="section paper">
         <div className="section-head"><div><p className="label">OUR</p><h2>MENU</h2></div><p>Juicy chicken. Loaded fries. Burgers. Sides. And more.</p></div>
-        <div className="menu-grid">{menu.map(m=><article className="card" key={m.title}><div className="food">{m.emoji}</div><div className="card-copy"><h3>{m.title}</h3><p>{m.text}</p></div></article>)}</div><div className="menu-note"><strong>CLASSIC CHEEKY FLAVOURS</strong><span>Buffalo BBQ • Honey Sriracha • Honey Garlic • Soy • Garlic Parmesan</span></div>
-        <div className="center"><a className="btn primary" href="#order">VIEW FULL MENU <ArrowRight size={18}/></a></div>
+        <div className="menu-grid">{menu.map(m=><article className="card" key={m.title}><div className={`food food-${m.tone}`}><span>{m.emoji}</span><i>CHEEKY</i></div><div className="card-copy"><h3>{m.title}</h3><p>{m.text}</p></div></article>)}</div><div className="menu-note"><strong>CLASSIC CHEEKY FLAVOURS</strong><span>Buffalo BBQ • Honey Sriracha • Honey Garlic • Soy • Garlic Parmesan</span></div>
+        <div className="center"><a className="btn primary" href="https://linktr.ee/cheekyclucker" target="_blank" rel="noreferrer">VIEW ORDER LINKS <ExternalLink size={17}/></a></div>
       </section>
 
       <section id="events" className="events">
-        <div className="truck">🚚</div>
+        <div className="truck"><div className="truck-illustration"><span>CLUCK<br/><b>TRUCK</b></span><strong>🍗</strong></div></div>
         <div className="event-copy"><p className="label">BOOK THE CLUCKER</p><h2>BRING THE <span>CHEEKY CLUCKER</span><br/>TO YOUR EVENT</h2><p>From intimate gatherings to large-scale events, bring the flavour, the vibe and the chicken.</p><div className="event-list">{events.map(e=><span key={e}>✓ {e}</span>)}</div><a className="btn yellow" href="#contact">ENQUIRE NOW <ArrowRight size={18}/></a></div>
       </section>
 
       <section id="booking" className="section paper booking">
         <div><p className="label">FIND THE CLUCK TRUCK</p><h2>THE GEORGE<br/>ROCHESTER</h2><p className="muted">344 City Way, Rochester<br/>Medway ME1 2BH</p><div className="info"><span><CalendarDays size={18}/> Friday & Saturday</span><span><Clock3 size={18}/> Friday & Saturday • Check Instagram for updates</span></div><a className="btn outline dark" href="https://www.google.com/maps/search/?api=1&query=The+George+344+City+Way+Rochester" target="_blank" rel="noreferrer">GET DIRECTIONS <ArrowRight size={18}/></a></div>
-        <div className="map"><div className="pin"><MapPin size={30}/></div><span>The George, Rochester</span></div>
+        <div className="map"><div className="map-lines"></div><div className="pin"><MapPin size={30}/></div><span>The George, Rochester</span></div>
         <div className="visit-note"><p className="label">THE NEW HOME</p><h3>Back in Rochester with the Cluck Truck.</h3><p>Cheeky Clucker returned to Rochester with a permanent pitch at The George, while continuing its festival and event work.</p><a href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer" className="text-link">LATEST UPDATES ON INSTAGRAM →</a></div>
       </section>
 
-      <section id="order" className="order paper"><div><p className="label">READY TO EAT?</p><h2>ORDER YOUR<br/><span>CHICKEN FIX.</span></h2><p className="muted">The ordering area is designed to put collection and delivery in one obvious place, so customers do not have to hunt through multiple platforms.</p></div><div className="order-actions"><a className="btn primary" href="#" onClick={e=>{e.preventDefault(); alert('Collection ordering link to be connected.')}}>COLLECTION <ArrowRight size={18}/></a><a className="btn outline dark" href="#" onClick={e=>{e.preventDefault(); alert('Delivery ordering link to be connected.')}}>DELIVERY <ArrowRight size={18}/></a></div></section>
+      <section id="order" className="order paper"><div><p className="label">READY TO EAT?</p><h2>ORDER YOUR<br/><span>CHICKEN FIX.</span></h2><p className="muted">The ordering area is designed to put collection and delivery in one obvious place, so customers do not have to hunt through multiple platforms.</p></div><div className="order-actions"><a className="btn primary" href="https://linktr.ee/cheekyclucker" target="_blank" rel="noreferrer">ORDER / BOOK <ExternalLink size={17}/></a><a className="btn outline dark" href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer">CHECK UPDATES <Instagram size={17}/></a></div></section>
 
       <section id="about" className="about dark-section"><div><p className="label">ABOUT CHEEKY CLUCKER</p><h2>GOOD CHICKEN.<br/><span>GOOD TIMES.</span></h2></div><p>Cheeky Clucker is back in Rochester with its Cluck Truck, bringing its core fried chicken menu back to the city while continuing to serve festivals, corporate bookings, weddings and other events across the UK.</p></section>
 
-      <section id="gallery" className="gallery paper"><div className="section-head"><div><p className="label">FOLLOW THE FLOCK</p><h2>GALLERY</h2></div><a className="btn outline dark" href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer"><Instagram size={18}/> FOLLOW ON INSTAGRAM</a></div><div className="gallery-grid">{['🍗','🍔','🎪','🔥','🍟','🐔'].map((x,i)=><div className={'g g'+i} key={i}>{x}</div>)}</div></section>
+      <section id="gallery" className="gallery paper"><div className="section-head"><div><p className="label">FOLLOW THE FLOCK</p><h2>GALLERY</h2></div><a className="btn outline dark" href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer"><Instagram size={18}/> FOLLOW ON INSTAGRAM</a></div><div className="gallery-grid">{['🍗','🍔','🎪','🔥','🍟','🐔'].map((x,i)=><div className={`g g${i}`} key={i}><span>{x}</span><small>CHEEKY CLUCKER</small></div>)}</div></section>
 
-      <section id="contact" className="contact dark-section"><div><p className="label">EVENTS & ENQUIRIES</p><h2>LET'S GET<br/><span>CHEEKY.</span></h2></div><form onSubmit={e=>{e.preventDefault(); alert('Thanks! Your enquiry form is ready to connect to your inbox.')}}><input placeholder="Your name" required/><input type="email" placeholder="Email address" required/><select defaultValue=""><option value="" disabled>Event type</option>{events.map(e=><option key={e}>{e}</option>)}</select><textarea placeholder="Tell us about your event..." rows="4"></textarea><button className="btn yellow" type="submit">SEND ENQUIRY <ArrowRight size={18}/></button></form></section>
+      <section id="contact" className="contact dark-section"><div><p className="label">EVENTS & ENQUIRIES</p><h2>LET'S GET<br/><span>CHEEKY.</span></h2><p className="contact-copy">Planning a wedding, corporate event, private party or festival? Tell the team what you're working on and start the conversation.</p><a className="btn yellow" href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer">DM ON INSTAGRAM <Instagram size={18}/></a></div><div className="contact-panel"><h3>WHAT ARE YOU PLANNING?</h3><div className="contact-options">{events.map(e=><a key={e} href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer">{e}<ArrowRight size={16}/></a>)}</div><p>For availability and event details, message <strong>@cheekycluckeruk</strong>.</p></div></section>
     </main>
 
     <footer id="footer"><div className="footer-brand"><a href="#home" className="brand"><span>CHEEKY</span> CLUCKER<div className="brand-sub">AWARD WINNING FRIED CHICKEN</div></a></div><div><h4>QUICK LINKS</h4><a href="#menu">Menu</a><a href="#booking">Visit Us</a><a href="#events">Catering & Events</a><a href="#about">About</a><a href="#contact">Contact</a></div><div><h4>GET IN TOUCH</h4><span>📍 344 City Way, Rochester</span><span>📩 DM us on Instagram</span><a href="https://www.instagram.com/cheekycluckeruk/" target="_blank" rel="noreferrer"><Instagram size={18}/> Instagram</a></div><div className="footer-tag">GOOD<br/>CHICKEN<br/>GOOD<br/>TIMES</div></footer>
