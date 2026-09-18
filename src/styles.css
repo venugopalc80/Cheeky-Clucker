@@ -47,3 +47,29 @@
   .mobile-cta a:first-child{background:var(--red)}
   .mobile-cta a:last-child{border-right:0}
 }
+
+/* Real photography */
+.hero-photo-wrap{width:min(520px,90vw);height:500px;border:4px solid #fff;border-radius:18px;overflow:hidden;transform:rotate(-4deg);box-shadow:22px 24px 0 #000,0 30px 70px rgba(0,0,0,.45);position:relative;background:#171717}
+.hero-photo{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.hero-photo-wrap:after{content:'CHEEKY CLUCKER';position:absolute;left:18px;bottom:18px;background:#070707;color:#ffd331;padding:8px 11px;font:16px/1 'Bebas Neue';letter-spacing:.08em}
+.food-photo{padding:0;background:#171717}
+.food-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}
+.card:hover .food-photo img{transform:scale(1.06)}
+.food-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.58))}
+.food-photo i{z-index:2}
+.truck-photo{width:min(650px,86%);height:390px;border:4px solid #fff;border-radius:14px;overflow:hidden;transform:rotate(-3deg);box-shadow:18px 20px 0 #ff2c2c}
+.truck-photo img{width:100%;height:100%;display:block;object-fit:cover}
+.g{background:#111;min-height:220px}
+.g img{width:100%;height:100%;min-height:220px;display:block;object-fit:cover;transition:transform .45s ease}
+.g:hover img{transform:scale(1.04)}
+.g:before{z-index:1;pointer-events:none;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.65))}
+.g small{z-index:3}
+@media(max-width:900px){
+  .hero-photo-wrap{width:330px;height:360px}
+  .truck-photo{height:300px}
+}
+@media(max-width:600px){
+  .hero-photo-wrap{width:290px;height:330px}
+  .truck-photo{width:92%;height:240px}
+  .g,.g img{min-height:260px}
+}
